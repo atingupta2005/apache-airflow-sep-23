@@ -293,8 +293,8 @@ Current interval can be derived from a combination of theexecution\_dateand then
 
 ## Use Dockerfile to setup Airflow
 ```
-git clone https://github.com/atingupta2005/apache-airflow
-cd apache-airflow
+cd ~
+git clone https://github.com/atingupta2005/apache-airflow-sep-23
 ```
 
 ```

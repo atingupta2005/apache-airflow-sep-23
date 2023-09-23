@@ -291,6 +291,25 @@ Current interval can be derived from a combination of theexecution\_dateand then
 ![](img/1-The%20basics%20of%20Apache%20Airflow30.png)
 
 
+## Use Dockerfile to setup Airflow
+```
+git clone https://github.com/atingupta2005/apache-airflow
+cd apache-airflow
+```
+
+```
+cd ~/apache-airflow/01-The\ basics\ of\ Apache\ Airflow/
+docker build -t airflow-basic .
+docker images
+```
+
+```
+docker run -d --name airflow_1  -p 8080:8080 airflow-basic
+```
+
+```
+docker exec -it airflow_1  bash
+```
 
 ## Quick Tour of Airflow CLI
 - Initialise the metadatabase

@@ -95,3 +95,33 @@ cd ~/mnt/composer
 tree .
 ```
 
+
+### Connect CLI to Composer CLI
+```
+sudo apt-get install kubectl -y
+```
+
+```
+sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+```
+
+```
+cat ~/.bashrc
+```
+
+```
+echo "export USE_GKE_GCLOUD_AUTH_PLUGIN=True" >> ~/.bashrc
+echo 'alias GCPCMPSR="gcloud composer environments run composer-1 --location asia-east2"' >> ~/.bashrc
+```
+
+```
+cat ~/.bashrc
+```
+
+```
+source ~/.bashrc
+```
+
+```
+GCPCMPSR dags list -- --output=json
+```

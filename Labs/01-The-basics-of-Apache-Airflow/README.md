@@ -298,7 +298,7 @@ git clone https://github.com/atingupta2005/apache-airflow-sep-23
 ```
 
 ```
-cd ~/apache-airflow/01-The\ basics\ of\ Apache\ Airflow/
+cd ~/apache-airflow-sep-23/Labs/01-The-basics-of-Apache-Airflow
 docker build -t airflow-basic .
 docker images
 ```
@@ -339,12 +339,6 @@ airflow webserver &
 - Start Airflow’s scheduler
 ```
 airflow scheduler &
-```
-
-
-- Start a Celery worker (Useful in distributed mode to spread tasks among nodes - machines)
-```
-airflow celery worker
 ```
 
 

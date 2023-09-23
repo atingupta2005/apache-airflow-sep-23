@@ -24,21 +24,26 @@ for FULLFILEPATH in */*; do
  
  mv $FULLFILEPATH $FILEPATH/$new_file_name
  sed -i "s/$replacec/$replacewithc/g" $FILEPATH/$new_file_name
+
+ replacec="dag_id="
+ replacewithc="tags=['$USER', '$FILEPATH', '$FILENAME'], dag_id="
+ sed -i "s/$replacec/$replacewithc/g" $FILEPATH/$new_file_name
 done
 ```
 
+```
+ls 1
+cat 1/atingupta2005-1-00_umbrella.py
+```
+
 
 ```
+#rm -rf ~/mnt/composer/dags/$USER
 mkdir -p ~/mnt/composer/dags/$USER
 ```
 
-
 ```
 cp -r . ~/mnt/composer/dags/$USER
-```
-
-```
-rm -rf ~/mnt/composer/$USER
 ```
 
 ```

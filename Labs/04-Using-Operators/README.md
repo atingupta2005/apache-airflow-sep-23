@@ -23,27 +23,6 @@ also_run_this = BashOperator(
 )
 ```
 
-
-## BranchDateTimeOperator
-- To branch into one of two execution paths depending on whether the date and/or time of execution falls into the range given by two target arguments.
-
-```
-dummy_task_1 = DummyOperator(task_id='date_in_range', dag=dag)
-dummy_task_2 = DummyOperator(task_id='date_outside_range', dag=dag)
-
-cond1 = BranchDateTimeOperator(
-    task_id='datetime_branch',
-    follow_task_ids_if_true=['date_in_range'],
-    follow_task_ids_if_false=['date_outside_range'],
-    target_upper=datetime.datetime(2020, 10, 10, 15, 0, 0),
-    target_lower=datetime.datetime(2020, 10, 10, 14, 0, 0),
-    dag=dag,
-)
-
-# Run dummy_task_1 if cond1 executes between 2020-10-10 14:00:00 and 2020-10-10 15:00:00
-cond1 >> [dummy_task_1, dummy_task_2]
-```
-
 ## PythonOperator
 - To execute Python callables
 
@@ -77,37 +56,6 @@ for i in range(5):
     run_this >> task
 ```
 
-## PythonVirtualenvOperator
-- To execute Python callables inside a new Python virtual environment.
-
-```
-def callable_virtualenv():
-    """
-    Example function that will be performed in a virtual environment.
-
-    Importing at the module level ensures that it will not attempt to import the
-    library before it is installed.
-    """
-    from time import sleep
-
-    from colorama import Back, Fore, Style
-
-    print(Fore.RED + 'some red text')
-    print(Back.GREEN + 'and with a green background')
-    print(Style.DIM + 'and in dim text')
-    print(Style.RESET_ALL)
-    for _ in range(10):
-        print(Style.DIM + 'Please wait...', flush=True)
-        sleep(10)
-    print('Finished')
-
-virtualenv_task = PythonVirtualenvOperator(
-    task_id="virtualenv_python",
-    python_callable=callable_virtualenv,
-    requirements=["colorama==0.4.0"],
-    system_site_packages=False,
-)
-```
 
 ## BranchDayOfWeekOperator
 - To branch your workflow based on week day value.
@@ -148,13 +96,3 @@ child_task1 = ExternalTaskSensor(
 )
 ```
 
-### ExternalTaskMarker
-- If it is desirable that whenever parent_task on parent_dag is cleared, child_task1 on child_dag for a specific execution_date should also be cleared, ExternalTaskMarker should be used
-- Note that child_task1 will only be cleared if "Recursive" is selected when the user clears parent_task.
-```
-parent_task = ExternalTaskMarker(
-    task_id="parent_task",
-    external_dag_id="example_external_task_marker_child",
-    external_task_id="child_task1",
-)
-```

@@ -11,8 +11,10 @@ Future/*
 **/*Optional*
 *Skip*
 **/*Skip*
+*pending*
 *Pending*
 **/*Pending*
+**/*pending*
 **/Debug
 **/debug
 **/Bin

@@ -195,13 +195,13 @@ t3.set_upstream(t1)
 # DagRuns
 
 * execution\_time
-  * Begin at the DAG’sstart\_dateand repeat everyschedule\_interval\.
-* For eachexecution\_time\, aDagRunis created and operates under the context of that execution time
-* ADagRunis simply a DAG that has a specific execution time\.
+  * Begin at the DAG’s start\_date and repeat every schedule\_interval\.
+* For each execution\_time\, a DagRun is created and operates under the context of that execution time
+* A DagRun is simply a DAG that has a specific execution time\.
 
 # TaskInstances
 
-The task that belongs toDagRuns
+The task that belongs to DagRuns
 
 # UI DAG Graph View
 
@@ -265,9 +265,9 @@ __Run every three days following the start date \(on the 4th\, 7th\, 10th\, and 
 
 Defined as start time of corresponding schedule interval rather than time at which the DAG is executed \(which is typically the end of the interval\)
 
-As such\, value ofexecution\_datepoints to start of the current interval\, while theprevious\_execution\_dateandnext\_execution\_dateparameters point to start of previous and next schedule intervals\, respectively
+As such\, value of execution\_date points to start of the current interval\, while the previous\_execution\_date and next\_execution\_date parameters point to start of previous and next schedule intervals\, respectively
 
-Current interval can be derived from a combination of theexecution\_dateand thenext\_execution\_date\, which signifies the start of the next interval and thus the end of the current one\.
+Current interval can be derived from a combination of the execution\_date and the next\_execution\_date\, which signifies the start of the next interval and thus the end of the current one\.
 
 ![](img/1-The%20basics%20of%20Apache%20Airflow26.png)
 

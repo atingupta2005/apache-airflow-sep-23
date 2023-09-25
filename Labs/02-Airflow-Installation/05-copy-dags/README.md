@@ -1,5 +1,6 @@
 ```
 cd ~
+rm -rf apache-airflow-sep-23
 git clone https://github.com/atingupta2005/apache-airflow-sep-23
 ```
 
@@ -35,20 +36,10 @@ ls 1
 cat 1/atingupta2005-1-00_umbrella.py
 ```
 
-
 ```
-rm -rf ~/mnt/composer/dags/$USER
-mkdir -p ~/mnt/composer/dags/$USER
+sudo rm -rf /airflow-2/dags/$USER
+sudo mkdir -p /airflow-2/dags/$USER
 cd ~/apache-airflow-sep-23/Labs/Airflow-Dags-Hands-on
-cp -r . ~/mnt/composer/dags/$USER
-ls ~/mnt/composer/dags
-```
-
-
-```
-rm -rf /airflow-2/dags/$USER
-mkdir -p /airflow-2/dags/$USER
-cd ~/apache-airflow-sep-23/Labs/Airflow-Dags-Hands-on
-cp -r . /airflow-2/dags/$USER
+sudo cp -r . /airflow-2/dags/$USER
 ls /airflow-2/dags/$USER
 ```

@@ -38,6 +38,9 @@ cat 1/atingupta2005-1-00_umbrella.py
 
 ```
 sudo rm -rf /airflow-2/dags/$USER
+```
+
+```
 sudo mkdir -p /airflow-2/dags/$USER
 cd ~/apache-airflow-sep-23/Labs/Airflow-Dags-Hands-on
 sudo cp -r . /airflow-2/dags/$USER

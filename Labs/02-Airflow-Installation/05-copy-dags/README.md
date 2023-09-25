@@ -33,7 +33,7 @@ done
 
 ```
 ls 1
-cat 1/atingupta2005-1-00_umbrella.py
+cat 1/$USER-1-00_umbrella.py
 ```
 
 ```

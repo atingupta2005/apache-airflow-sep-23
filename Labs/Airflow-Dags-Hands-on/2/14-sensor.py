@@ -5,6 +5,9 @@
 from airflow.decorators import dag, task
 from pendulum import datetime
 import requests
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
+
 
 # importing the PokeReturnValue
 from airflow.sensors.base import PokeReturnValue

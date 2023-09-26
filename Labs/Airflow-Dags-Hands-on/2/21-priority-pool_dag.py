@@ -1,9 +1,12 @@
 import uuid
-
+from datetime import datetime
 import airflow
 
 from airflow import DAG
 from airflow.decorators import task
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
+
 
 def sleep_function(x):
     time.sleep(x)
@@ -14,7 +17,6 @@ with DAG(
     start_date=datetime(2023, 1, 1),
     schedule="*/30 * * * *",
     catchup=False,
-    default_args=default_args,
 ) as dag:
 
     task_a = PythonOperator(

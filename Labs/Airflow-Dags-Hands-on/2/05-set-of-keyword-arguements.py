@@ -1,6 +1,8 @@
 import uuid
 
 import airflow
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
 
 from airflow import DAG
 from airflow.decorators import task

@@ -3,6 +3,8 @@
 from pendulum import datetime
 from airflow import DAG
 from airflow.sensors.date_time import DateTimeSensorAsync
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
 
 with DAG(
     dag_id="async_dag_2",

@@ -1,10 +1,12 @@
 from airflow.decorators import dag, task, task_group
 from pendulum import datetime
 import json
-
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
+from airflow.decorators import task_group
 
 @dag(dag_id='07-task-group', start_date=datetime(2023, 8, 1), schedule=None, catchup=False)
-def task_group_example07():
+def task_group_example():
     @task
     def extract_data():
         data_string = '{"1001": 301.27, "1002": 433.21, "1003": 502.22}'

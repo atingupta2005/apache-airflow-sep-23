@@ -1,6 +1,9 @@
 from datetime import datetime 
 from airflow import DAG 
 from airflow.sensors.filesystem import FileSensor 
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
+
 
 with DAG(dag_id='16-sensor', start_date=datetime(2023, 1, 1)) as dag: 
     wait_for_file = FileSensor( 

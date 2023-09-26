@@ -20,7 +20,7 @@ def _deploy_model(**context):
 
 
 with DAG(
-    dag_id="10_xcoms",
+    dag_id="09_xcoms",
     start_date=airflow.utils.dates.days_ago(3),
     schedule_interval="@daily",
 ) as dag:

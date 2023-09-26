@@ -7,7 +7,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 with DAG(
-    dag_id="async_dag_2",
+    dag_id="19-DateTimeSensorAsync",
     start_date=datetime(2021, 12, 22, 20, 0),
     end_date=datetime(2021, 12, 22, 20, 19),
     schedule="* * * * *",

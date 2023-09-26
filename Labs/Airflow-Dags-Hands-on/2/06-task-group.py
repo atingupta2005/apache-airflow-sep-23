@@ -3,7 +3,7 @@ import uuid
 import airflow
 
 from airflow import DAG
-from airflow.decorators import task
+from airflow.decorators import task,task_group
 
 
 with DAG(

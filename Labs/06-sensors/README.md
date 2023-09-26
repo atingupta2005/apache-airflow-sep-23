@@ -8,24 +8,44 @@
 - If the condition is met, the task is marked successful and the DAG can move to downstream tasks. 
 - If the condition isn't met, the sensor waits for another interval before checking again.
 
-### mode: How the sensor operates. There are two types of modes:
+### mode: 
 - poke: This is the default mode. When using poke, the sensor occupies a worker slot for the entire execution time and sleeps between pokes. This mode is best if you expect a short runtime for the sensor.
 - reschedule: When using this mode, if the criteria is not met then the sensor releases its worker slot and reschedules the next check for a later time. This mode is best if you expect a long runtime for the sensor, because it is less resource intensive and frees up workers for other tasks.
 
-### poke_interval: When using poke mode, this is the time in seconds that the sensor waits before checking the condition again. The default is 60 seconds.
-### exponential_backoff: When set to True, this setting creates exponentially longer wait times between pokes in poke mode.
-### timeout: The maximum amount of time in seconds that the sensor checks the condition. If the condition is not met within the specified period, the task fails.
-### soft_fail: If set to True, the task is marked as skipped if the condition is not met by the timeout.
+### poke_interval: 
+- When using poke mode, this is the time in seconds that the sensor waits before checking the condition again. The default is 60 seconds.
+
+### exponential_backoff:
+- When set to True, this setting creates exponentially longer wait times between pokes in poke mode.
+
+### timeout:
+- The maximum amount of time in seconds that the sensor checks the condition. If the condition is not met within the specified period, the task fails.
+
+### soft_fail: 
+- If set to True, the task is marked as skipped if the condition is not met by the timeout.
 
 ## Commonly used sensors
 - Many Airflow provider packages contain sensors that wait for various criteria in different source systems. The following are some of the most commonly used sensors:
 
-### @task.sensor decorator: Allows you to turn any Python function that returns a PokeReturnValue into an instance of the BaseSensorOperator class. This way of creating a sensor is useful when checking for complex logic or if you are connecting to a tool via an API that has no specific sensor available.
-### S3KeySensor: Waits for a key (file) to appear in an Amazon S3 bucket. This sensor is useful if you want your DAG to process files from Amazon S3 as they arrive.
-### DateTimeSensor: Waits for a specified date and time. This sensor is useful if you want different tasks within the same DAG to run at different times.
-### ExternalTaskSensor: Waits for an Airflow task to be completed. This sensor is useful if you want to implement cross-DAG dependencies in the same Airflow environment.
-### HttpSensor: Waits for an API to be available. This sensor is useful if you want to ensure your API requests are successful.
-### SqlSensor: Waits for data to be present in a SQL table. This sensor is useful if you want your DAG to process data as it arrives in your database.
+### @task.sensor decorator: 
+- Allows you to turn any Python function that returns a PokeReturnValue into an instance of the BaseSensorOperator class
+- This way of creating a sensor is useful when checking for complex logic or if you are connecting to a tool via an API that has no specific sensor available.
+
+### S3KeySensor:
+- Waits for a key (file) to appear in an Amazon S3 bucket. 
+- This sensor is useful if you want your DAG to process files from Amazon S3 as they arrive.
+
+### DateTimeSensor: 
+- Waits for a specified date and time. This sensor is useful if you want different tasks within the same DAG to run at different times.
+
+### ExternalTaskSensor: 
+- Waits for an Airflow task to be completed. This sensor is useful if you want to implement cross-DAG dependencies in the same Airflow environment.
+
+### HttpSensor: 
+- Waits for an API to be available. This sensor is useful if you want to ensure your API requests are successful.
+
+### SqlSensor: 
+- Waits for data to be present in a SQL table. This sensor is useful if you want your DAG to process data as it arrives in your database.
 
 
 ## Sensor best practices

@@ -4,7 +4,9 @@ import airflow
 
 from airflow import DAG
 from airflow.decorators import task,task_group
-
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
+from airflow.operators.empty import EmptyOperator
 
 with DAG(
     dag_id="06-task-group",

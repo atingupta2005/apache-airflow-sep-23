@@ -18,3 +18,6 @@ for FULLFILEPATH in */*; do
  replacewithc="tags=['$USER', '$FILEPATH', '$FILENAME'], dag_id="
  sed -i "s/$replacec/$replacewithc/g" $FILEPATH/$new_file_name
 done
+
+
+echo "Completed. Please do not run again"

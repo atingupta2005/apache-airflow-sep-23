@@ -84,7 +84,8 @@ $AIRFLOW_HOME/logs/airflow
  - the start date in the past
  - the Scheduler isn’t running properly
  
-### For tasks that show as failed, you may be able to pinpoint the issue in the Airflow UI.  Otherwise, check the logs.
+### For tasks that show as faileD
+ - pinpoint the issue in the Airflow UI.  Otherwise, check the logs.
  - the task may have run out of memory
  - Airflow automatically shuts down tasks that take too long to execute.  Again, assign more resources to enable faster execution.
 

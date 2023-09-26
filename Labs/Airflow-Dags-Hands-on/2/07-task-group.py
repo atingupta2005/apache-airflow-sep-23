@@ -1,50 +1,19 @@
-from airflow.decorators import dag, task, task_group
-from pendulum import datetime
-import json
-from airflow.operators.bash import BashOperator
-from airflow.operators.python import PythonOperator
-from airflow.decorators import task_group
+from airflow.models import DAG
+from airflow.operators.python import task
+from airflow.utils.dates import days_ago
+from airflow.utils.task_group import TaskGroup
 
-@dag(dag_id='07-task-group', start_date=datetime(2023, 8, 1), schedule=None, catchup=False)
-def task_group_example():
-    @task
-    def extract_data():
-        data_string = '{"1001": 301.27, "1002": 433.21, "1003": 502.22}'
-        order_data_dict = json.loads(data_string)
-        return order_data_dict
+@task
+def show():
+    print("Python is awesome")
 
-    @task
-    def transform_sum(order_data_dict: dict):
-        total_order_value = 0
-        for value in order_data_dict.values():
-            total_order_value += value
+with DAG(
+    dag_id="07-task-group",
+    default_args={'owner': 'airflow'},
+    start_date=days_ago(2),
+    schedule_interval=None,
+) as dag3:
 
-        return {"total_order_value": total_order_value}
-
-    @task
-    def transform_avg(order_data_dict: dict):
-        total_order_value = 0
-        for value in order_data_dict.values():
-            total_order_value += value
-            avg_order_value = total_order_value / len(order_data_dict)
-
-        return {"avg_order_value": avg_order_value}
-
-    @task_group
-    def transform_values(order_data_dict):
-        return {
-            "avg": transform_avg(order_data_dict),
-            "total": transform_sum(order_data_dict),
-        }
-
-    @task
-    def load(order_values: dict):
-        print(
-            f"""Total order value is: {order_values['total']['total_order_value']:.2f} 
-            and average order value is: {order_values['avg']['avg_order_value']:.2f}"""
-        )
-
-    load(transform_values(extract_data()))
-
-
-task_group_example()
+    with TaskGroup(group_id="tasks_1") as tg1:
+        for _ in range(10):
+            BashOperator(task_id=f'processing_{_}', bash_command='ls')

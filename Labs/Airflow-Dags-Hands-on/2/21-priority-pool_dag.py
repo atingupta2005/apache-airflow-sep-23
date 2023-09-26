@@ -10,7 +10,7 @@ def sleep_function(x):
 
 
 with DAG(
-    "21-priority-pool_dag",
+    dag_id="21-priority-pool_dag",
     start_date=datetime(2023, 1, 1),
     schedule="*/30 * * * *",
     catchup=False,

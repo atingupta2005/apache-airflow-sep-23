@@ -3,6 +3,7 @@ from pendulum import datetime
 
 
 @dag(
+    dag_id='07-02-generate-task-groups',
     start_date=datetime(2022, 12, 1),
     schedule=None,
     catchup=False,

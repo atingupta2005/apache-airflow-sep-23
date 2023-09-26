@@ -3,7 +3,7 @@ from pendulum import datetime
 import json
 
 
-@dag(start_date=datetime(2023, 8, 1), schedule=None, catchup=False)
+@dag(dag_id='07-task-group', start_date=datetime(2023, 8, 1), schedule=None, catchup=False)
 def task_group_example07():
     @task
     def extract_data():

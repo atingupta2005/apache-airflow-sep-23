@@ -11,7 +11,6 @@ with DAG(
     dag_id="example_weekday_branch_operator",
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
-    tags=["example"],
     schedule="@daily",
 ) as dag:
     # [START howto_operator_day_of_week_branch]

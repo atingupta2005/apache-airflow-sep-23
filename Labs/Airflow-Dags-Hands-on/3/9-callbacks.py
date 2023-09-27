@@ -31,7 +31,6 @@ with DAG(
     catchup=False,
     on_success_callback=None,
     on_failure_callback=task_failure_alert,
-    tags=["example"],
 ):
 
     task1 = EmptyOperator(task_id="task1", on_execute_callback=[dag_execute_alert])

@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 default_args = {
     'start_date': datetime(2032, 8, 8),
     'owner': 'Airflow',
-    wait_for_downstream=True
+    'wait_for_downstream': True
 }
 
 def second_task():

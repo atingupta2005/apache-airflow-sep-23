@@ -4,7 +4,7 @@
 - Review the logs and notice logs for the worker every 30 seconds:
 ```
 docker ps
-docker logs -f <container-id>
+docker logs -f <webserver-container-id>
 ```
 - More workers means more tasks can be executed in parallel
 - Notice parameter - logging_level

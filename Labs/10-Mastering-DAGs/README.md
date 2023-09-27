@@ -51,19 +51,6 @@ Atomic, Idempotent
 
 ![](img/9-Mastering%20DAGs3.png)
 
-# Catchup process
-
-Notice the gap between the execution date and start date because of Catchup - Greater than schedule_interval
-
-![](img/9-Mastering%20DAGs4.png)
-
-# How to turn on/ off Catchup?
-
-* Either by
-  * Setting the parameter catchup in the DAG definition to True or False
-  * Changing the parameter catchup_by_default in airflow.cfg
-* By default, catchup_by_default=True
-
 # Dealing with timezones in Airflow
 
 Make your DAGs timezone dependent
@@ -84,10 +71,6 @@ Make your DAGs timezone dependent
   * Datetime naive
 * Why it matters?
   * Interpretation of naive datetime objects: BAD
-
-# Example
-
-![](img/9-Mastering%20DAGs5.png)
 
 # Best Practices!
 
@@ -115,21 +98,6 @@ Make your DAGs timezone dependent
   * <span style="color:#0070C0">default_args</span>  <span style="color:#0070C0">= \{ ‘</span>  <span style="color:#0070C0">start_date</span>  <span style="color:#0070C0">’: datetime(2019, 1, 1,</span>  <span style="color:#0070C0">tzinfo</span>  <span style="color:#0070C0">=</span>  <span style="color:#0070C0">local_tz</span>  <span style="color:#0070C0">), owner=’Airflow’ \}</span>
   * <span style="color:#0070C0">with DAG(‘</span>  <span style="color:#0070C0">my_dag</span>  <span style="color:#0070C0">',</span>  <span style="color:#0070C0">default_args</span>  <span style="color:#0070C0">=</span>  <span style="color:#0070C0">default_args</span>  <span style="color:#0070C0">):</span>
     * <span style="color:#0070C0">…..</span>
-
-# Cron schedules
-
-* Airflow assumes you will always want to run at the exact same time.
-* It will ignore the DST (Daylight Saving Time).
-* For example:
-  * schedule_interval=0 5 \* \* \*
-* will always trigger your DAG at 5 PM GMT \+ 1 every day regardless if DST is in place.
-
-# Timedeltas
-
-* When theschedule_intervalis set with a time delta, Airflow assumes you always will want to run with the specified interval.
-* Example:
-  * timedelta(hours=2)
-* will always trigger your DAG 2 hours later.
 
 # How to make your tasks dependent
 
@@ -222,12 +190,6 @@ As best practice, always put a .airflowignorefile in your DAGs folder
     * sla_miss_callback
     * on_failure_callback
     * on_success_callback
-
-# max_active_runs
-
-If max_active_runs isn’t set, Airflow use max_active_runs_per_dag in airflow.cfg
-
-![](img/9-Mastering%20DAGs11.png)
 
 # Dag failure detections
 

@@ -2,11 +2,7 @@
 - We need to understand how xcoms work
 - Open xcom_dag.py
 - Review the code of tasks
-- Start Airflow
-```
-docker-compose -f docker-compose-CeleryExecutor.yml up -d
-docker ps
-```
+
 - Open Airflow UI
 - Enable DAG xcom_dag
 - Trigger DAG

@@ -23,7 +23,7 @@ default_args =  {
 	'dag_timeout': timedelta(seconds=75),
 }
 
-with DAG(dag_id='alert_dag', schedule_interval="0 0 * * *", default_args=default_args, catchup=True) as dag:
+with DAG(dag_id='11-alert_dag', schedule_interval="0 0 * * *", default_args=default_args, catchup=True) as dag:
     
     # Task 1
     t1 = BashOperator(task_id='t1', bash_command="exit 1")

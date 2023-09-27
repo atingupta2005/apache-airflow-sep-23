@@ -37,7 +37,7 @@ def notif_b():
     print("notif_b")
     #raise ValueError("error")
 
-with DAG(dag_id='trigger_rule_dag', 
+with DAG(dag_id='10-trigger_rule_dag', 
     default_args=default_args, 
     schedule_interval="@daily") as dag:
 

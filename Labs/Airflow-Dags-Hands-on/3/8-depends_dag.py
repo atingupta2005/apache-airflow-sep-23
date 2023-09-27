@@ -19,7 +19,7 @@ def third_task():
     print('Hello from third_task')
     #raise ValueError('This will turns the python task in failed state')
 
-with DAG(dag_id='depends_task', schedule_interval="0 0 * * *", default_args=default_args) as dag:
+with DAG(dag_id='8-depends_dag', schedule_interval="0 0 * * *", default_args=default_args) as dag:
     
     # Task 1
     bash_task_1 = BashOperator(task_id='bash_task_1', bash_command="echo 'first task'")

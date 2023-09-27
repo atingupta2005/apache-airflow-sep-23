@@ -8,7 +8,7 @@ from airflow.operators.weekday import BranchDayOfWeekOperator
 from airflow.utils.weekday import WeekDay
 
 with DAG(
-    dag_id="example_weekday_branch_operator",
+    dag_id="4-branch_day_of_week_operator",
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
     schedule="@daily",

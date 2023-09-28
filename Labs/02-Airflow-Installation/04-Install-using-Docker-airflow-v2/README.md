@@ -25,6 +25,9 @@ sudo chmod -R 777 /airflow-2
 ```
 ls
 chmod a+x ./*.sh
+mkdir -p /airflow-2/config/dags
+mkdir -p /airflow-2/config/plugins
+mkdir -p /airflow-2/config/logs
 ls
 docker compose --profile flower up -d
 ls

@@ -45,5 +45,5 @@ with DAG(
     task1 = EmptyOperator(task_id="task1", on_execute_callback=[dag_execute_alert])
     task2 = EmptyOperator(task_id="task2", on_failure_callback=[dag_failure_alert])
     task3 = EmptyOperator(task_id="task3", on_success_callback=[dag_success_alert])
-    task4 = PythonOperator(task_id='python_task_4', python_callable=third_task, on_failure_callback=[dag_failure_alert])
+    python_task_4 = PythonOperator(task_id='python_task_4', python_callable=third_task, on_failure_callback=[dag_failure_alert])
     task1 >> task2 >> task3 >> python_task_4

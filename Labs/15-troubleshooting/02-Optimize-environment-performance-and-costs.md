@@ -148,6 +148,3 @@ Increase the number of schedulers.
    - If the web server CPU usage is above 80% for more than a few percent of time, consider increasing Web Server CPU.
    - If you observe high web server memory usage, consider adding more memory to the web server.
 
-
-## Reference:
- - https://cloud.google.com/composer/docs/composer-2/optimize-environments#console

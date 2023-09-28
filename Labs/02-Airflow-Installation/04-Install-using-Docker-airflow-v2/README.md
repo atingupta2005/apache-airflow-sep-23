@@ -19,6 +19,7 @@ ls *.sh
 ```
 cp *.sh docker-compose.yaml /airflow-2/
 cd /airflow-2
+sudo chmod -R 777 /airflow-2
 ```
 
 ```
@@ -26,5 +27,6 @@ ls
 chmod a+x ./*.sh
 ls
 docker compose --profile flower up -d
+ls
 ```
 

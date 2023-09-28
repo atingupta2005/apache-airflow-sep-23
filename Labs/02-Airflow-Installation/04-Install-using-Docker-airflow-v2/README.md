@@ -24,7 +24,8 @@ cd /airflow-2
 
 ```
 ls
-chmod a+x ./start.sh
+chmod a+x ./*.sh
+ls
 docker compose --profile flower up -d
 ```
 

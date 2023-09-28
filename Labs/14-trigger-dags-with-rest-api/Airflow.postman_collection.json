@@ -9,15 +9,6 @@
 			"name": "1-Listing-Dags",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
-			},
-			"response": []
-		},
-		{
-			"name": "2-Trigger-dag",
-			"request": {
-				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
@@ -25,8 +16,32 @@
 						"type": "text"
 					}
 				],
+				"url": "http://vmairflow.eastus2.cloudapp.azure.com:8080/api/v1/dags"
+			},
+			"response": []
+		},
+		{
+			"name": "2-Trigger-dag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWlyZmxvdzphaXJmbG93",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"conf\": {\"owner\": \"Atin G----\"}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://vmairflow.eastus2.cloudapp.azure.com:8080/api/v1/health",
+					"raw": "http://vmairflow.eastus2.cloudapp.azure.com:8080/api/v1/dags/10-trigger_rule_dag/dagRuns",
 					"protocol": "http",
 					"host": [
 						"vmairflow",
@@ -39,7 +54,9 @@
 					"path": [
 						"api",
 						"v1",
-						"health"
+						"dags",
+						"10-trigger_rule_dag",
+						"dagRuns"
 					],
 					"query": [
 						{
@@ -56,8 +73,14 @@
 			"name": "4-monitor-instances",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWlyZmxvdzphaXJmbG93",
+						"type": "text"
+					}
+				],
+				"url": "http://vmairflow.eastus2.cloudapp.azure.com:8080/api/v1/health"
 			},
 			"response": []
 		},
@@ -65,8 +88,14 @@
 			"name": "3-retreive-details",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWlyZmxvdzphaXJmbG93",
+						"type": "text"
+					}
+				],
+				"url": "http://vmairflow.eastus2.cloudapp.azure.com:8080/api/v1/dags/10-trigger_rule_dag/dagRuns"
 			},
 			"response": []
 		}

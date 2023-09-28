@@ -71,6 +71,7 @@ class MyBasicMathOperator(BaseOperator):
     start_date=datetime(2023, 1, 1),
     # render Jinja template as native Python object
     catchup=False,
+    render_template_as_native_obj=True,  ## To maintain the data type as original type so that it is not converted to the string type
 )
 
 def my_math_dag():

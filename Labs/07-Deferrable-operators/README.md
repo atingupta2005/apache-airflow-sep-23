@@ -65,3 +65,4 @@ Running → Deferred → Triggerer → Queued
 ## Difference between Mode=’reschedule’ and Deferrable=True in Sensors
 ![](img/7.png)
 
+

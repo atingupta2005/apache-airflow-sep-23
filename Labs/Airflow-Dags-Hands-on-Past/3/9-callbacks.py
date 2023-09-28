@@ -3,7 +3,7 @@ import pendulum
 
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
-
+from airflow.operators.python import PythonOperator
 
 def task_failure_alert(context):
     print(f"Task has failed, task_instance_key_str: {context['task_instance_key_str']}")

@@ -27,7 +27,7 @@ gcloud auth application-default login --no-launch-browser
 ```
 
 ```
-gcsfuse asia-east2-composer-1-f50dc24e-bucket "~/mnt/composer"
+gcsfuse asia-east2-composer-1-c2486070-bucket "~/mnt/composer"
 ```
 
 ```

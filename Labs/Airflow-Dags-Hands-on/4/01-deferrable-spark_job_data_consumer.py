@@ -6,6 +6,7 @@ import os
 from pendulum import datetime
 from airflow.decorators import dag, task
 from airflow.triggers.base import BaseTrigger, TriggerEvent
+from typing import Any
 
 class SuccessFileTrigger(BaseTrigger):
     def __init__(self, file_input_directory: str):
@@ -28,7 +29,7 @@ class SuccessFileTrigger(BaseTrigger):
             await asyncio.sleep(5)
         yield TriggerEvent(self.file_to_wait_for)
 
-    def serialize(self) -> tuple[str, dict[str, Any]]:
+    def serialize(self) -> tuple[str, dict]:
         return ("04_deferrable_operators.SuccessFileTrigger", {"file_input_directory": self.file_input_directory})
 
 class SparkSuccessFileSensor(BaseSensorOperator):

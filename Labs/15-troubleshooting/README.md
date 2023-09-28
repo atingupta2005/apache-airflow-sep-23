@@ -14,9 +14,8 @@ logging_level:  DEBUG
 
 - To view the streaming logs in Cloud Logging:
    - Go to the Logs Explorer in the Google Cloud console.
-   - Go to Logs Explorer
    - Select the logs you want to see.
-   - You can filter by properties such as log file and level, predefined label, task name, workflow, and execution date
+   - You can filter by properties
 
 ## Troubleshooting Airflow scheduler issues
 - Identify if the issue happens at DAG parse time or while processing tasks at execution time

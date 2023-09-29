@@ -30,7 +30,7 @@
 - Open URL: <dns-name>:8080
   - Credentials: airflow/airflow
 - Create HTTP connection named - forex_api
-  - https://gist.githubusercontent.com
+  - http://vmairflow.eastus2.cloudapp.azure.com:8080
 - Run the task
 ```
 docker ps

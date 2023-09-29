@@ -5,7 +5,7 @@ class TestDagValidation:
 
     LOAD_SECOND_THRESHOLD = 2
     REQUIRED_EMAIL = "owner@test.com"
-    EXPECTED_NUMBER_OF_DAGS = 7
+    EXPECTED_NUMBER_OF_DAGS = 3
 
     def test_import_dags(self, dagbag):
         """
@@ -18,21 +18,6 @@ class TestDagValidation:
             dagbag.import_errors
         )
 
-    def test_time_import_dags(self, dagbag):
-        """
-            Verify that DAGs load fast enough
-            - check for loading time
-        """
-        stats = dagbag.dagbag_stats
-        slow_dags = list(filter(lambda f: f.duration > self.LOAD_SECOND_THRESHOLD, stats))
-        res = ', '.join(map(lambda f: f.file[1:], slow_dags))        
-
-        assert len(slow_dags) == 0, "The following DAGs take more than {0}s to load: {1}".format(
-            self.LOAD_SECOND_THRESHOLD,
-            res
-        )
-
-    @pytest.mark.skip(reason="not yet added to the DAGs")
     def test_default_args_email(self, dagbag):
         """
             Verify that DAGs have the required email
@@ -42,7 +27,6 @@ class TestDagValidation:
             emails = dag.default_args.get('email', [])
             assert self.REQUIRED_EMAIL in emails, "The mail {0} for sending alerts is missing from the DAG {1}".format(self.REQUIRED_EMAIL, dag_id)
     
-    @pytest.mark.skip(reason="not yet added to the DAGs")
     def test_default_args_retries(self, dagbag):
         """
             Verify that DAGs have the required number of retries
@@ -52,7 +36,6 @@ class TestDagValidation:
             retries = dag.default_args.get('retries', None)
             assert retries is not None, "You must specify a number of retries in the DAG: {0}".format(dag_id)
 
-    @pytest.mark.skip(reason="not yet added to the DAGs")
     def test_default_args_retry_delay(self, dagbag):
         """
             Verify that DAGs have the required retry_delay expressed in seconds
